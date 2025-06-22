@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Avengers Gallery</title>
+    <link rel="stylesheet" href="Style.Css">
+</head>
+<body>
+
+    <div id="menu">
+        <a href="creating avengers app.html">Home</a>
+        <a href="About.html">About</a>
+        <a href="Contact.html">Contact</a>
+    </div>
+
+    <h1 id="mainHeading"></h1>
+
+    
+    <div class="gallery">
+        <a href="avenger-1.html"><img src="images/avengers_01.jpg" alt="Avenger 1"/></a>
+        <a href="avengers-2.html"><img src="images/avengers_02.jpg" alt="Avenger 2"/></a>
+        <a href="avengers-3.html"><img src="images/avengers_03.jpg" alt="Avenger 3"/></a>
+        <a href="avenger-4.html"><img src="images/avengers_04.jpg" alt="Avenger 4"/></a>
+        <a href="avengers-5.html"><img src="images/avengers_05.jpg" alt="Avenger 5"/></a>
+        <a href="avenger-6.html"><img src="images/avengers_06.jpg" alt="Avenger 6"/></a>
+    </div>
+
+    <div id="quoteBox">Click an Avenger to get a quote!</div>
+
+    <script>
+         
+    const text = "Welcome to the Avengers Gallery";
+    const heading = document.getElementById("mainHeading");
+    let index = 0;
+
+    function typeWriter() {
+        if (index < text.length) {
+            heading.innerHTML += text.charAt(index);
+            index++;
+            setTimeout(typeWriter, 100); // typing speed
+        }
+    }
+
+    // Start typing effect after DOM loads
+    window.onload = typeWriter;
+
+        const quotes = [
+            "I can do this all day. – Captain America",
+            "I am Iron Man. – Tony Stark",
+            "Hulk smash!",
+            "I'm always angry. – Bruce Banner",
+            "We have a Hulk. – Tony Stark",
+            "Wakanda Forever! – Black Panther",
+            "I choose to run toward my problems. – Thor"
+        ];
+
+        const images = document.querySelectorAll(".gallery img");
+        const quoteBox = document.getElementById("quoteBox");
+
+        images.forEach(img => {
+            img.addEventListener("click", function () {
+                const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+                quoteBox.textContent = randomQuote;
+                quoteBox.classList.add("show");
+                setTimeout(() => quoteBox.classList.remove("show"), 3000);
+            });
+        });
+    </script>
+</body>
+</html>

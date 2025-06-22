@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Captain America</title>
+    <link rel="stylesheet" href="Style.Css"/>
+</head>
+<body>
+
+    <div id="menu">
+        <a href="creating avengers app.html">Home</a>
+        <a href="About.html">About</a>
+        <a href="Contact.html">Contact</a>
+    </div>
+
+    <h2>Captain America</h2>
+    
+    <div class="gallery">
+        <img src="images/avengers_05.jpg" alt="Captain America"/>
+    </div>
+
+    <div class="bio">
+        <h4>Bio</h4>
+        <p><b>Full Name:</b> Steve Rogers</p>
+        <p><b>Place of Birth:</b> America</p>
+        <p><b>Alignment:</b> Good</p>
+        <p><b>Gender:</b> Male</p>
+        <p><b>Race:</b> Human</p>
+    </div>
+
+    <div class="stats">
+        <h4>Power Stats</h4>
+        <div><b>Intelligence:</b> <div class="bar" data-value="59%"></div></div>
+        <div><b>Strength:</b> <div class="bar" data-value="13%"></div></div>
+        <div><b>Speed:</b> <div class="bar" data-value="35%"></div></div>
+        <div><b>Durability:</b> <div class="bar" data-value="50%"></div></div>
+        <div><b>Power:</b> <div class="bar" data-value="35%"></div></div>
+        <div><b>Combat:</b> <div class="bar" data-value="100%"></div></div>
+    </div>
+
+    <div id="quoteBox">🕷️ Quote: "<span id="quoteText"></span>"</div>
+
+    <script>
+        const quotes = [
+            "I've got red in my ledger. I'd like to wipe it out.",
+            "At some point, we all have to choose between what the world wants you to be and who you are.",
+            "Nothing lasts forever.",
+            "Even if there's a small chance, we owe this to everyone who's not in this room."
+        ];
+
+        // Show a random quote
+        const quoteText = document.getElementById("quoteText");
+        quoteText.textContent = quotes[Math.floor(Math.random() * quotes.length)];
+
+        // Animate power bars
+        const bars = document.querySelectorAll(".bar");
+        bars.forEach(bar => {
+            const value = bar.getAttribute("data-value");
+            bar.style.width = value;
+        });
+    </script>
+
+</body>
+</html>
+   
